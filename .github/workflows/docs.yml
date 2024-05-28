@@ -18,18 +18,6 @@ jobs:
     steps:
       # Checkout the source code
       - uses: actions/checkout@v4
-      # Setup dotnet, please use a global.json to ensure the right SDK is used!
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-      # Restore the local tools
-      - name: Restore tools
-        run: dotnet tool restore
-      # Build the code for the API documentation
-      - name: Build code
-        run: dotnet build -c Release YourSolution.sln
-      # Generate the documentation files
-      - name: Generate the documentation'
-        run: dotnet fsdocs build --properties Configuration=Release
       # Upload the static files
       - name: Upload documentation
         uses: actions/upload-pages-artifact@v2
